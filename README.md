@@ -1,70 +1,91 @@
-# QC Inspection App
+# QC Inspection Web App
 
-> Sistem Inspeksi Quality Control berbasis web — mobile-first, installable (PWA), barcode scanner, validasi real-time.
+> **[ID]** Sistem Inspeksi Quality Control berbasis web — mobile-first, installable (PWA), barcode scanner, validasi real-time.
+>
+> **[EN]** Web-based Quality Control Inspection System — mobile-first, installable (PWA), barcode scanner, real-time validation.
 
 **Live Demo:** [ird.svian.dev](https://ird.svian.dev)
 
 ---
 
-## Overview
+## Screenshots
 
-QC Inspection adalah aplikasi web untuk proses pengecekan kualitas produk di lini produksi. Didesain mobile-first agar bisa digunakan langsung di lapangan menggunakan smartphone, dengan fitur scan barcode untuk memuat checksheet otomatis.
-
-Aplikasi ini mendukung instalasi sebagai PWA (Progressive Web App) sehingga bisa diakses dari home screen Android/iOS layaknya aplikasi native.
+<p align="center">
+  <img src="screenshots/login.png" width="200" alt="Login" />
+  <img src="screenshots/dashboard.png" width="200" alt="Dashboard" />
+  <img src="screenshots/std-create.png" width="200" alt="Create STD" />
+</p>
+<p align="center">
+  <img src="screenshots/inspection.png" width="200" alt="Inspection" />
+  <img src="screenshots/history.png" width="200" alt="History" />
+  <img src="screenshots/export.png" width="200" alt="Export CSV" />
+</p>
 
 ---
 
-## Fitur Utama
+## Overview
 
-### Scan Barcode / QR Code
-Scan No IRD langsung dari kamera smartphone. Sistem otomatis memuat Standard (checksheet) yang sesuai. Tersedia juga opsi input manual dan pemilihan dari daftar STD.
+**[ID]**
+QC Inspection adalah aplikasi web untuk proses pengecekan kualitas produk di lini produksi. Didesain mobile-first agar bisa digunakan langsung di lapangan menggunakan smartphone, dengan fitur scan barcode untuk memuat checksheet otomatis. Mendukung instalasi sebagai PWA sehingga tampil layaknya aplikasi native.
 
-### Input Inspeksi 5 Pcs
-Setiap item pengecekan mendukung hingga 5 pengukuran per sample. Range (max-min) dan Average dihitung otomatis. Minimal 1 pcs wajib diisi — fleksibel sesuai kebutuhan produksi.
+**[EN]**
+QC Inspection is a web application for product quality checking on the production line. Designed mobile-first for field use on smartphones, featuring barcode scanning to auto-load checksheets. Supports PWA installation for a native app-like experience.
 
-### Tipe Pengecekan
-- **Numerik** — Input angka dengan toleransi. Mendukung 3 tipe spec:
-  - Bilateral (`10 ±0.15 mm`)
-  - Min Only (`6.3 min`)
-  - Max Only (`50 max`)
-- **Non-Numerik** — Pengecekan visual dengan pilihan OK/NG per sample (5 pcs)
+---
 
-### Validasi Real-Time
-Setiap nilai yang diinput langsung divalidasi terhadap spec:
-- **OK** — border hijau
-- **NG** — border merah + suara alert + vibrasi
+## Features / Fitur
 
-### Ilustrasi Drawing
-Upload gambar drawing/blueprint yang ditampilkan sticky di bagian atas layar saat operator mengisi nilai. Nomor item di form sesuai dengan nomor di gambar.
+### Barcode Scanner
+- **[ID]** Scan No IRD langsung dari kamera smartphone. Sistem otomatis memuat Standard (checksheet) yang sesuai. Tersedia juga input manual dan pemilihan dari daftar.
+- **[EN]** Scan IRD number directly from smartphone camera. System auto-loads the matching Standard (checksheet). Manual input and list selection also available.
 
-### Draft Otomatis
-Inspeksi yang belum selesai tersimpan otomatis. Jika operator berpindah halaman lalu kembali, inspeksi dilanjutkan dari posisi terakhir.
+### 5 Pcs Measurement Input
+- **[ID]** Setiap item mendukung hingga 5 pengukuran per sample. Range dan Average dihitung otomatis. Minimal 1 pcs wajib diisi.
+- **[EN]** Each item supports up to 5 measurements per sample. Range and Average calculated automatically. Minimum 1 pcs required.
 
-### Riwayat & Export
-- Riwayat inspeksi dengan filter status (OK/NG) dan search
-- Detail hasil per item lengkap dengan pengukuran P1-P5
-- Export ke CSV (Excel-compatible) dengan filter tanggal — waktu menggunakan zona WIB
+### Inspection Types / Tipe Pengecekan
+- **Numeric** — Bilateral (`10 ±0.15 mm`), Min Only (`6.3 min`), Max Only (`50 max`)
+- **Non-Numeric** — Visual check with OK/NG per sample (5 pcs)
 
-### Multi-Role Access Control
+### Real-Time Validation / Validasi Real-Time
+- **[ID]** Setiap nilai langsung divalidasi: OK (hijau), NG (merah + suara + vibrasi).
+- **[EN]** Every value instantly validated: OK (green), NG (red + sound alert + vibration).
 
-| Fitur                         | Admin | Engineer | Operator | Viewer |
-|-------------------------------|:-----:|:--------:|:--------:|:------:|
-| Buat / Edit / Hapus STD       | V     | V        | -        | -      |
-| Upload Ilustrasi Drawing      | V     | V        | -        | -      |
-| Lakukan Inspeksi              | V     | V        | V        | -      |
-| Lihat Semua Riwayat           | V     | V        | -        | V      |
-| Lihat Riwayat Sendiri         | V     | V        | V        | V      |
-| Export CSV                    | V     | V        | V        | V      |
-| Kelola Pengguna               | V     | -        | -        | -      |
+### Drawing Illustration / Ilustrasi Drawing
+- **[ID]** Gambar drawing sticky di atas layar saat input nilai. Nomor item sesuai gambar.
+- **[EN]** Drawing image sticks to top of screen during input. Item numbers match the drawing.
+
+### Auto-Save Draft
+- **[ID]** Inspeksi tersimpan otomatis. Berpindah halaman lalu kembali — langsung lanjut dari posisi terakhir.
+- **[EN]** Inspection auto-saved. Switch pages and come back — resume from where you left off.
+
+### History & Export / Riwayat & Export
+- **[ID]** Riwayat inspeksi dengan filter dan search. Export ke CSV (Excel) dengan filter tanggal, zona waktu WIB.
+- **[EN]** Inspection history with filters and search. Export to CSV (Excel) with date range filter, WIB timezone.
 
 ### Installable (PWA)
-Bisa diinstall di **Android** (Chrome > Tambahkan ke layar utama) dan **iOS** (Safari > Add to Home Screen). Tampil layaknya aplikasi native tanpa address bar.
+- **Android:** Chrome > Menu > Add to Home Screen
+- **iOS:** Safari > Share > Add to Home Screen
+
+---
+
+## Role-Based Access / Hak Akses
+
+| Feature / Fitur               | Admin | Engineer | Operator | Viewer |
+|-------------------------------|:-----:|:--------:|:--------:|:------:|
+| Create / Edit / Delete STD    | V     | V        | -        | -      |
+| Upload Drawing                | V     | V        | -        | -      |
+| Perform Inspection            | V     | V        | V        | -      |
+| View All History              | V     | V        | -        | V      |
+| View Own History              | V     | V        | V        | V      |
+| Export CSV                    | V     | V        | V        | V      |
+| Manage Users                  | V     | -        | -        | -      |
 
 ---
 
 ## Tech Stack
 
-| Layer      | Teknologi                               |
+| Layer      | Technology                              |
 |------------|-----------------------------------------|
 | Framework  | Next.js 16 (App Router)                 |
 | Database   | PostgreSQL (Neon, via Vercel)            |
@@ -78,43 +99,46 @@ Bisa diinstall di **Android** (Chrome > Tambahkan ke layar utama) dan **iOS** (S
 
 ---
 
-## Database Schema
+## Data Model
 
 ```
-User             — Manajemen pengguna dengan 4 role (Admin/Engineer/Operator/Viewer)
+User             — User management with 4 roles (Admin/Engineer/Operator/Viewer)
 Std              — Standard / Checksheet (Customer, Part Name, Part No, Spec/Dimension)
-StdItem          — Item pengecekan per STD (Numerik / Non-Numerik, toleransi, inspection tool)
-Inspection       — Hasil inspeksi (No IRD, No Batch, status keseluruhan)
-InspectionResult — Detail per item (5 pengukuran, Range, Average, status OK/NG)
+StdItem          — Check items per STD (Numeric / Non-Numeric, tolerance, inspection tool)
+Inspection       — Inspection result (IRD No, Batch No, overall status)
+InspectionResult — Per-item detail (5 measurements, Range, Average, OK/NG status)
 ```
 
 ---
 
-## Alur Penggunaan
+## User Flow / Alur Penggunaan
 
 ### 1. Setup Checksheet (Admin / Engineer)
-Buat Standard dengan informasi Customer, Part Name, Part No, dan Spec/Dimension. Tambahkan item pengecekan — bisa numerik (dengan toleransi) atau non-numerik (visual check). Upload gambar drawing sebagai referensi.
+- **[ID]** Buat Standard: isi Customer, Part Name, Part No, Spec/Dimension. Tambah item pengecekan (numerik dengan toleransi, atau visual check). Upload gambar drawing.
+- **[EN]** Create Standard: fill in Customer, Part Name, Part No, Spec/Dimension. Add check items (numeric with tolerance, or visual check). Upload drawing image.
 
-### 2. Inspeksi (Operator)
-Scan barcode atau pilih STD dari daftar. Isi No Batch, lalu input nilai pengukuran per item. Sistem langsung menampilkan status OK/NG dengan feedback visual dan audio. Simpan saat selesai.
+### 2. Inspection / Inspeksi (Operator)
+- **[ID]** Scan barcode atau pilih STD dari daftar. Isi No Batch, input nilai per item. Validasi otomatis OK/NG. Simpan.
+- **[EN]** Scan barcode or select STD from list. Fill Batch No, input values per item. Auto-validation OK/NG. Save.
 
 ### 3. Monitoring (Viewer / Admin)
-Pantau hasil inspeksi dari menu Riwayat. Filter berdasarkan status atau cari berdasarkan No IRD / No Batch. Export data ke CSV untuk analisis lebih lanjut.
+- **[ID]** Pantau riwayat inspeksi, filter status, search, lihat detail, export CSV.
+- **[EN]** Monitor inspection history, filter by status, search, view details, export CSV.
 
 ---
 
 ## Deployment
 
-Aplikasi di-deploy di **Vercel** dengan:
-- **Neon PostgreSQL** sebagai database (via Vercel Postgres integration)
-- **Vercel Blob** untuk penyimpanan gambar ilustrasi
-- **PWA Service Worker** di-generate otomatis saat build
+- **Platform:** Vercel
+- **Database:** Neon PostgreSQL (Vercel integration)
+- **Storage:** Vercel Blob (illustration images)
+- **PWA:** Service Worker auto-generated at build time
 
 ---
 
-## Kontak
+## Contact / Kontak
 
-Dikembangkan oleh **Septa Viandra**
+Developed by **Septa Viandra**
 
 - GitHub: [github.com/septaviandra](https://github.com/septaviandra)
-- Live: [ird.svian.dev](https://ird.svian.dev)
+- Live Demo: [ird.svian.dev](https://ird.svian.dev)
